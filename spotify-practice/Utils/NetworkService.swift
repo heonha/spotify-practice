@@ -17,7 +17,7 @@ final class NetworkService: RestProtocol {
         cancellables = .init()
     }
     
-    func GET<T>(headerType: HeaderType,
+    func GET<T>(headerType: HttpHeader,
                 urlString baseUrl: String,
                 endPoint: String,
                 parameters: [String: String] = [:],
@@ -34,7 +34,7 @@ final class NetworkService: RestProtocol {
             }
             
             var request = URLRequest(url: url)
-            request.allHTTPHeaderFields = headerType.getHeader()
+            request.allHTTPHeaderFields = headerType.get()
             request.httpMethod = HttpMethod.GET.rawValue
 
             tryDataTaskPublisher(request: request)
@@ -58,12 +58,13 @@ final class NetworkService: RestProtocol {
         }
     }
     
-    func POST<T>(headerType: HeaderType,
+    func POST<T>(headerType: HttpHeader,
                  urlString baseUrl: String,
                  endPoint: String,
                  body rawBody: [String: String] = [:],
                  returnType: T.Type) -> Future<T, Error> where T: Codable {
         return Future<T, Error> { [weak self] promise in
+            
             guard let self = self else {
                 return promise(.failure(NetworkError.selfIsNil))
             }
@@ -84,7 +85,7 @@ final class NetworkService: RestProtocol {
             let httpBody = bodyComponent.query?.data(using: .utf8)
 
             var request = URLRequest(url: url)
-            request.allHTTPHeaderFields = headerType.getHeader()
+            request.allHTTPHeaderFields = headerType.get()
             request.httpMethod = HttpMethod.POST.rawValue
             request.httpBody = httpBody
                         
@@ -111,10 +112,7 @@ final class NetworkService: RestProtocol {
     
 }
 
-
-
 extension NetworkService {
-    // MARK: - Make QueryString
     private func parameterQueryHandler(from parameters: [String: String]) -> String {
         var queryString = ""
         
@@ -145,48 +143,6 @@ extension NetworkService {
                 }
                 return data
             }
-    }
-    
-}
-
-import Foundation
-
-enum NetworkError: Error {
-    
-    case selfIsNil
-    case invalidUrl
-    case responseError
-    case statusCode(Int)
-    case parameterConvertError
-    case badRequest
-    case invalidBody
-    case invalidEndpoint
-    case invalidMediaUrl
-    case unknown
-    
-    var localizedDescription: String {
-        switch self {
-        case .selfIsNil:
-            return "\(self): object is nil"
-        case .invalidUrl:
-            return "\(self): 올바르지 않은 URL"
-        case .responseError:
-            return "\(self): 응답 오류"
-        case .statusCode(let code):
-            return "\(self): \(code) 오류"
-        case .parameterConvertError:
-            return "\(self): 파라미터 변환 오류"
-        case .invalidBody:
-            return "\(self): 잘못된 Body 형식"
-        case .invalidEndpoint:
-            return "\(self): Endpoint가 올바르지 않습니다."
-        case .badRequest:
-            return "\(self): 잘못된 HTTPRequest"
-        case .invalidMediaUrl:
-            return "\(self): 잘못된 컨텐츠 URL"
-        case .unknown:
-            return "\(self): 알수 없는 오류"
-        }
     }
     
 }

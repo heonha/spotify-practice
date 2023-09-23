@@ -26,7 +26,6 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         configure()
         layout()
-        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,39 +38,29 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
     }
     
     private func configure() {
-        view.addSubview(webView)
         webView.navigationDelegate = self
         webView.load(.init(url: AuthManager.shared.signInURL!))
     }
     
     private func layout() {
+        view.addSubview(webView)
         webView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
     }
-    
-    private func bind() {
-        
-    }
-    
-    // 로딩 시작 시 수행하는 작업
+
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        guard let url = webView.url else { 
-            print("URL X")
-            return }
+        guard let url = webView.url else { return }
+        guard let code = URLComponents(string: url.absoluteString)?
+            .queryItems?
+            .first(where: { $0.name == "code"}) else { return }
         
-        print(url.absoluteString)
-        
-        guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code"}) else {
-            print("CODE X")
-            return }
-        
-        AuthManager.shared.exchangeCodeForToken(code: code.value ?? "") { [weak self] result in
-            if let completionHandler = self?.completionHandler {
-                completionHandler(result)
+        AuthManager.shared
+            .exchangeCodeForToken(code: code.value ?? "") { [weak self] result in
+                if let completionHandler = self?.completionHandler {
+                    completionHandler(result)
+                }
             }
-        }
-        
     }
     
 }

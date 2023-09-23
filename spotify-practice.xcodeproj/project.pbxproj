@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B12ABEE9300087F956 /* AuthReturnData.swift */; };
+		39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B32ABEE9590087F956 /* NetworkError.swift */; };
+		39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */; };
+		39FC86B82ABEE9D50087F956 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B72ABEE9D50087F956 /* HTTPHeader.swift */; };
 		39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20282ABEA255008C6DF5 /* AppDelegate.swift */; };
 		39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */; };
 		39FD20322ABEA256008C6DF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FD20312ABEA256008C6DF5 /* Assets.xcassets */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39FC86B12ABEE9300087F956 /* AuthReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReturnData.swift; sourceTree = "<group>"; };
+		39FC86B32ABEE9590087F956 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMetheod.swift; sourceTree = "<group>"; };
+		39FC86B72ABEE9D50087F956 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
 		39FD20252ABEA255008C6DF5 /* spotify-practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spotify-practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FD20282ABEA255008C6DF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 				39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */,
 				39FD20552ABEB869008C6DF5 /* AuthViewController.swift */,
 				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
+				39FC86B12ABEE9300087F956 /* AuthReturnData.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -141,6 +150,9 @@
 			children = (
 				39FD20652ABED2FD008C6DF5 /* NetworkService.swift */,
 				39FD20672ABED315008C6DF5 /* RestProtocol.swift */,
+				39FC86B32ABEE9590087F956 /* NetworkError.swift */,
+				39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */,
+				39FC86B72ABEE9D50087F956 /* HTTPHeader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -224,10 +236,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				39FD20662ABED2FD008C6DF5 /* NetworkService.swift in Sources */,
+				39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */,
 				39FD203F2ABEAF0E008C6DF5 /* UITabViewController.swift in Sources */,
 				39FD20542ABEB80B008C6DF5 /* Keys.swift in Sources */,
+				39FC86B82ABEE9D50087F956 /* HTTPHeader.swift in Sources */,
 				39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */,
+				39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */,
 				39FD205F2ABEBCC3008C6DF5 /* UIViewPreview.swift in Sources */,
+				39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */,
 				39FD20462ABEB013008C6DF5 /* WelcomeViewController.swift in Sources */,
 				39FD205D2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift in Sources */,
 				39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */,
