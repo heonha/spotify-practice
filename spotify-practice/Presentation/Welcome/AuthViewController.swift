@@ -29,6 +29,11 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBatTitle(title: "스포티파이로 계속하기", titleColor: .white)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
@@ -47,6 +52,15 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
     
     private func bind() {
         
+    }
+    
+    // 로딩 시작 시 수행하는 작업
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        guard let url = webView.url else { return }
+        
+        guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code"}) else { return }
+        
+        print("code --> \(code)")
     }
     
 }

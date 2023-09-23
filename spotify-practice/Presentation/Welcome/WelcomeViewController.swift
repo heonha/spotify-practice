@@ -23,13 +23,20 @@ final class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         configure()
         layout()
-        bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBatTitle(title: "Spotify", titleColor: .black, isLargeTitle: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.setNavigationBatTitle(title: "", titleColor: .black, isLargeTitle: true)
     }
     
     private func configure() {
         self.view.backgroundColor = .systemGreen
-        self.navigationItem.title = "Spotify"
-        self.navigationItem.largeTitleDisplayMode = .always
     }
     
     private func layout() {
@@ -42,19 +49,12 @@ final class WelcomeViewController: UIViewController {
         }
     }
     
-    private func bind() {
-        
-    }
-    
     @objc private func signInButtonTapped() {
         let authVC = AuthViewController()
         authVC.completionHandler = { [weak self] success in
             self?.handleSignIn(success: success)
         }
-        authVC.navigationItem.title = "스포티파이로 계속하기"
-        authVC.navigationItem.titleView?.tintColor = .white
-        authVC.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.pushViewController(authVC, animated: true)
+        self.push(authVC, animated: true)
     }
     
     private func handleSignIn(success: Bool) {

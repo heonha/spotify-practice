@@ -19,7 +19,7 @@ final class AuthManager {
         let baseURL = "https://accounts.spotify.com/authorize"
         let code = "code"
         let scope = "user-read-private"
-        let redirectURI = "https://website.heon.dev".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let redirectURI = "spotify-ios-quick-start://spotify-login-callback"
         let parameter = "?response_type=\(code)&client_id=\(Keys.clientId)&scope=\(scope)&redirect_uri=\(redirectURI)&show_dialog=TRUE"
         let url = URL(string: baseURL + parameter)
         return url
@@ -43,6 +43,10 @@ final class AuthManager {
     
     private var shouldRefreshToken: Bool {
         return false 
+    }
+    
+    public func exchangeCodeForToken(code token: String, completion: @escaping(Bool) -> Void) {
+        
     }
     
     
