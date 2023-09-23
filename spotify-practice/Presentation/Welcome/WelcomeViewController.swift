@@ -58,7 +58,11 @@ final class WelcomeViewController: UIViewController {
     }
     
     private func handleSignIn(success: Bool) {
-        
+        if success {
+            let mainVC = UITabViewController()
+            mainVC.modalPresentationStyle = .fullScreen
+            self.present(mainVC, animated: false)
+        }
     }
     
 }

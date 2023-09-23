@@ -21,6 +21,8 @@
 		39FD205D2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD205C2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift */; };
 		39FD205F2ABEBCC3008C6DF5 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD205E2ABEBCC3008C6DF5 /* UIViewPreview.swift */; };
 		39FD20632ABEC9C1008C6DF5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20622ABEC9C1008C6DF5 /* UIViewController+Extension.swift */; };
+		39FD20662ABED2FD008C6DF5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20652ABED2FD008C6DF5 /* NetworkService.swift */; };
+		39FD20682ABED315008C6DF5 /* RestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20672ABED315008C6DF5 /* RestProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		39FD205E2ABEBCC3008C6DF5 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
 		39FD20602ABEBD2D008C6DF5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		39FD20622ABEC9C1008C6DF5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		39FD20652ABED2FD008C6DF5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		39FD20672ABED315008C6DF5 /* RestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 				39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */,
 				39FD20422ABEAFDE008C6DF5 /* Presentation */,
 				39FD20612ABEC9B5008C6DF5 /* Extension */,
+				39FD20642ABED2F0008C6DF5 /* Utils */,
 				39FD205B2ABEBC8F008C6DF5 /* Previews */,
 				39FD20522ABEB805008C6DF5 /* Secrets */,
 				39FD20312ABEA256008C6DF5 /* Assets.xcassets */,
@@ -129,6 +134,15 @@
 				39FD20622ABEC9C1008C6DF5 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		39FD20642ABED2F0008C6DF5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				39FD20652ABED2FD008C6DF5 /* NetworkService.swift */,
+				39FD20672ABED315008C6DF5 /* RestProtocol.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FD20662ABED2FD008C6DF5 /* NetworkService.swift in Sources */,
 				39FD203F2ABEAF0E008C6DF5 /* UITabViewController.swift in Sources */,
 				39FD20542ABEB80B008C6DF5 /* Keys.swift in Sources */,
 				39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */,
@@ -216,6 +231,7 @@
 				39FD20462ABEB013008C6DF5 /* WelcomeViewController.swift in Sources */,
 				39FD205D2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift in Sources */,
 				39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */,
+				39FD20682ABED315008C6DF5 /* RestProtocol.swift in Sources */,
 				39FD20562ABEB869008C6DF5 /* AuthViewController.swift in Sources */,
 				39FD20632ABEC9C1008C6DF5 /* UIViewController+Extension.swift in Sources */,
 				39FD20412ABEAF36008C6DF5 /* AuthManager.swift in Sources */,

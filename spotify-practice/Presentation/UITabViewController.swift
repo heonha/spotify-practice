@@ -13,16 +13,16 @@ final class UITabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        layout()
         bind()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        layout()
     }
     
     private func configure() {
-        
+        self.view.backgroundColor = .systemBlue 
     }
     
     private func layout() {

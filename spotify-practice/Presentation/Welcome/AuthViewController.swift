@@ -56,11 +56,22 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
     
     // 로딩 시작 시 수행하는 작업
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        guard let url = webView.url else { return }
+        guard let url = webView.url else { 
+            print("URL X")
+            return }
         
-        guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code"}) else { return }
+        print(url.absoluteString)
         
-        print("code --> \(code)")
+        guard let code = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code"}) else {
+            print("CODE X")
+            return }
+        
+        AuthManager.shared.exchangeCodeForToken(code: code.value ?? "") { [weak self] result in
+            if let completionHandler = self?.completionHandler {
+                completionHandler(result)
+            }
+        }
+        
     }
     
 }
