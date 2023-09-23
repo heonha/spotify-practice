@@ -18,6 +18,11 @@
 		39FD20482ABEB026008C6DF5 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20472ABEB026008C6DF5 /* APICaller.swift */; };
 		39FD204A2ABEB02D008C6DF5 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20492ABEB02D008C6DF5 /* HapticManager.swift */; };
 		39FD204E2ABEB0B1008C6DF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39FD204D2ABEB0B1008C6DF5 /* SnapKit */; };
+		39FD20542ABEB80B008C6DF5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20532ABEB80B008C6DF5 /* Keys.swift */; };
+		39FD20562ABEB869008C6DF5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20552ABEB869008C6DF5 /* AuthViewController.swift */; };
+		39FD205A2ABEBB67008C6DF5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20592ABEBB67008C6DF5 /* UIView+Extension.swift */; };
+		39FD205D2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD205C2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift */; };
+		39FD205F2ABEBCC3008C6DF5 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD205E2ABEBCC3008C6DF5 /* UIViewPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,12 @@
 		39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		39FD20472ABEB026008C6DF5 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		39FD20492ABEB02D008C6DF5 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		39FD20532ABEB80B008C6DF5 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		39FD20552ABEB869008C6DF5 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		39FD20592ABEBB67008C6DF5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		39FD205C2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerPreview.swift; sourceTree = "<group>"; };
+		39FD205E2ABEBCC3008C6DF5 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
+		39FD20602ABEBD2D008C6DF5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +80,12 @@
 			children = (
 				39FD20282ABEA255008C6DF5 /* AppDelegate.swift */,
 				39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */,
-				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
 				39FD20422ABEAFDE008C6DF5 /* Presentation */,
 				39FD20442ABEAFEC008C6DF5 /* Managers */,
+				39FD20582ABEBB5D008C6DF5 /* Extensions */,
 				39FD204B2ABEB069008C6DF5 /* Utils */,
+				39FD205B2ABEBC8F008C6DF5 /* Previews */,
+				39FD20522ABEB805008C6DF5 /* Secrets */,
 				39FD20312ABEA256008C6DF5 /* Assets.xcassets */,
 				39FD20332ABEA256008C6DF5 /* LaunchScreen.storyboard */,
 				39FD20362ABEA256008C6DF5 /* Info.plist */,
@@ -84,22 +97,15 @@
 			isa = PBXGroup;
 			children = (
 				39FD203E2ABEAF0E008C6DF5 /* UITabViewController.swift */,
-				39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */,
-				39FD20432ABEAFE3008C6DF5 /* ViewModels */,
+				39FD20572ABEB878008C6DF5 /* Welcome */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		39FD20432ABEAFE3008C6DF5 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		39FD20442ABEAFEC008C6DF5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
 				39FD20472ABEB026008C6DF5 /* APICaller.swift */,
 				39FD20492ABEB02D008C6DF5 /* HapticManager.swift */,
 			);
@@ -111,6 +117,40 @@
 			children = (
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		39FD20522ABEB805008C6DF5 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				39FD20532ABEB80B008C6DF5 /* Keys.swift */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
+		39FD20572ABEB878008C6DF5 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */,
+				39FD20552ABEB869008C6DF5 /* AuthViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		39FD20582ABEBB5D008C6DF5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				39FD20592ABEBB67008C6DF5 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39FD205B2ABEBC8F008C6DF5 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				39FD205C2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift */,
+				39FD205E2ABEBCC3008C6DF5 /* UIViewPreview.swift */,
+			);
+			path = Previews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,11 +193,12 @@
 			};
 			buildConfigurationList = 39FD20202ABEA255008C6DF5 /* Build configuration list for PBXProject "spotify-practice" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 39FD201C2ABEA255008C6DF5;
 			packageReferences = (
@@ -191,11 +232,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				39FD203F2ABEAF0E008C6DF5 /* UITabViewController.swift in Sources */,
+				39FD20542ABEB80B008C6DF5 /* Keys.swift in Sources */,
 				39FD204A2ABEB02D008C6DF5 /* HapticManager.swift in Sources */,
 				39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */,
 				39FD20482ABEB026008C6DF5 /* APICaller.swift in Sources */,
+				39FD205F2ABEBCC3008C6DF5 /* UIViewPreview.swift in Sources */,
 				39FD20462ABEB013008C6DF5 /* WelcomeViewController.swift in Sources */,
+				39FD205D2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift in Sources */,
 				39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */,
+				39FD20562ABEB869008C6DF5 /* AuthViewController.swift in Sources */,
+				39FD205A2ABEBB67008C6DF5 /* UIView+Extension.swift in Sources */,
 				39FD20412ABEAF36008C6DF5 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +253,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				39FD20342ABEA256008C6DF5 /* Base */,
+				39FD20602ABEBD2D008C6DF5 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -219,6 +266,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -266,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -282,6 +330,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -323,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -347,6 +396,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,6 +424,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
