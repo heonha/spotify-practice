@@ -14,11 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.backgroundColor = .blue
+        window?.backgroundColor = .systemBackground
         
-        let rootVC = ViewController()
+        if AuthManager.shared.isSignIn {
+            window?.rootViewController = UITabViewController()
+        } else {
+            let welcomeVC = UINavigationController(rootViewController: WelcomeViewController())
+            window?.rootViewController = welcomeVC
+        }
         
-        window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }
 

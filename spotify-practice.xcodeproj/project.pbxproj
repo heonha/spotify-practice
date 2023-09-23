@@ -9,21 +9,30 @@
 /* Begin PBXBuildFile section */
 		39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20282ABEA255008C6DF5 /* AppDelegate.swift */; };
 		39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */; };
-		39FD202D2ABEA255008C6DF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD202C2ABEA255008C6DF5 /* ViewController.swift */; };
 		39FD20322ABEA256008C6DF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FD20312ABEA256008C6DF5 /* Assets.xcassets */; };
 		39FD20352ABEA256008C6DF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FD20332ABEA256008C6DF5 /* LaunchScreen.storyboard */; };
 		39FD203D2ABEA288008C6DF5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 39FD203C2ABEA288008C6DF5 /* .gitignore */; };
+		39FD203F2ABEAF0E008C6DF5 /* UITabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD203E2ABEAF0E008C6DF5 /* UITabViewController.swift */; };
+		39FD20412ABEAF36008C6DF5 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20402ABEAF36008C6DF5 /* AuthManager.swift */; };
+		39FD20462ABEB013008C6DF5 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */; };
+		39FD20482ABEB026008C6DF5 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20472ABEB026008C6DF5 /* APICaller.swift */; };
+		39FD204A2ABEB02D008C6DF5 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20492ABEB02D008C6DF5 /* HapticManager.swift */; };
+		39FD204E2ABEB0B1008C6DF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39FD204D2ABEB0B1008C6DF5 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		39FD20252ABEA255008C6DF5 /* spotify-practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spotify-practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FD20282ABEA255008C6DF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		39FD202C2ABEA255008C6DF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39FD20312ABEA256008C6DF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39FD20342ABEA256008C6DF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39FD20362ABEA256008C6DF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39FD203C2ABEA288008C6DF5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		39FD203E2ABEAF0E008C6DF5 /* UITabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabViewController.swift; sourceTree = "<group>"; };
+		39FD20402ABEAF36008C6DF5 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		39FD20472ABEB026008C6DF5 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		39FD20492ABEB02D008C6DF5 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FD204E2ABEB0B1008C6DF5 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +69,48 @@
 			children = (
 				39FD20282ABEA255008C6DF5 /* AppDelegate.swift */,
 				39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */,
-				39FD202C2ABEA255008C6DF5 /* ViewController.swift */,
+				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
+				39FD20422ABEAFDE008C6DF5 /* Presentation */,
+				39FD20442ABEAFEC008C6DF5 /* Managers */,
+				39FD204B2ABEB069008C6DF5 /* Utils */,
 				39FD20312ABEA256008C6DF5 /* Assets.xcassets */,
 				39FD20332ABEA256008C6DF5 /* LaunchScreen.storyboard */,
 				39FD20362ABEA256008C6DF5 /* Info.plist */,
 			);
 			path = "spotify-practice";
+			sourceTree = "<group>";
+		};
+		39FD20422ABEAFDE008C6DF5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				39FD203E2ABEAF0E008C6DF5 /* UITabViewController.swift */,
+				39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */,
+				39FD20432ABEAFE3008C6DF5 /* ViewModels */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		39FD20432ABEAFE3008C6DF5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		39FD20442ABEAFEC008C6DF5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				39FD20472ABEB026008C6DF5 /* APICaller.swift */,
+				39FD20492ABEB02D008C6DF5 /* HapticManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		39FD204B2ABEB069008C6DF5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +129,9 @@
 			dependencies = (
 			);
 			name = "spotify-practice";
+			packageProductDependencies = (
+				39FD204D2ABEB0B1008C6DF5 /* SnapKit */,
+			);
 			productName = "spotify-practice";
 			productReference = 39FD20252ABEA255008C6DF5 /* spotify-practice.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +160,9 @@
 				Base,
 			);
 			mainGroup = 39FD201C2ABEA255008C6DF5;
+			packageReferences = (
+				39FD204C2ABEB0B1008C6DF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 39FD20262ABEA255008C6DF5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +190,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39FD202D2ABEA255008C6DF5 /* ViewController.swift in Sources */,
+				39FD203F2ABEAF0E008C6DF5 /* UITabViewController.swift in Sources */,
+				39FD204A2ABEB02D008C6DF5 /* HapticManager.swift in Sources */,
 				39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */,
+				39FD20482ABEB026008C6DF5 /* APICaller.swift in Sources */,
+				39FD20462ABEB013008C6DF5 /* WelcomeViewController.swift in Sources */,
 				39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */,
+				39FD20412ABEAF36008C6DF5 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +409,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		39FD204C2ABEB0B1008C6DF5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39FD204D2ABEB0B1008C6DF5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39FD204C2ABEB0B1008C6DF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 39FD201D2ABEA255008C6DF5 /* Project object */;
 }
