@@ -51,6 +51,8 @@ final class WelcomeViewController: UIViewController {
         authVC.completionHandler = { [weak self] success in
             self?.handleSignIn(success: success)
         }
+        authVC.navigationItem.title = "스포티파이로 계속하기"
+        authVC.navigationItem.titleView?.tintColor = .white
         authVC.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.pushViewController(authVC, animated: true)
     }

@@ -19,9 +19,8 @@ final class AuthManager {
         let baseURL = "https://accounts.spotify.com/authorize"
         let code = "code"
         let scope = "user-read-private"
-        let redirectURI = "https://website.heon.dev".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let parameter = "?response_type=\(code)&client_id=\(Keys.clientId)&scope=\(scope)&redirect_uri=\(redirectURI!)"
-        print(baseURL + parameter)
+        let redirectURI = "https://website.heon.dev".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let parameter = "?response_type=\(code)&client_id=\(Keys.clientId)&scope=\(scope)&redirect_uri=\(redirectURI)&show_dialog=TRUE"
         let url = URL(string: baseURL + parameter)
         return url
     }

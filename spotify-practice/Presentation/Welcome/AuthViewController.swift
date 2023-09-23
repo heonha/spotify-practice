@@ -31,7 +31,6 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        webView.frame = view.bounds
     }
     
     private func configure() {
@@ -41,7 +40,9 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
     }
     
     private func layout() {
-        
+        webView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
     }
     
     private func bind() {
