@@ -11,6 +11,7 @@
 		39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B32ABEE9590087F956 /* NetworkError.swift */; };
 		39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */; };
 		39FC86B82ABEE9D50087F956 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B72ABEE9D50087F956 /* HTTPHeader.swift */; };
+		39FC86BA2ABEEA0B0087F956 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 39FC86B92ABEEA0B0087F956 /* README.md */; };
 		39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD20282ABEA255008C6DF5 /* AppDelegate.swift */; };
 		39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */; };
 		39FD20322ABEA256008C6DF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FD20312ABEA256008C6DF5 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		39FC86B32ABEE9590087F956 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMetheod.swift; sourceTree = "<group>"; };
 		39FC86B72ABEE9D50087F956 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		39FC86B92ABEEA0B0087F956 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		39FD20252ABEA255008C6DF5 /* spotify-practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spotify-practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FD20282ABEA255008C6DF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		39FD201C2ABEA255008C6DF5 = {
 			isa = PBXGroup;
 			children = (
+				39FC86B92ABEEA0B0087F956 /* README.md */,
 				39FD203C2ABEA288008C6DF5 /* .gitignore */,
 				39FD20272ABEA255008C6DF5 /* spotify-practice */,
 				39FD20262ABEA255008C6DF5 /* Products */,
@@ -224,6 +227,7 @@
 			files = (
 				39FD20352ABEA256008C6DF5 /* LaunchScreen.storyboard in Resources */,
 				39FD203D2ABEA288008C6DF5 /* .gitignore in Resources */,
+				39FC86BA2ABEEA0B0087F956 /* README.md in Resources */,
 				39FD20322ABEA256008C6DF5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
