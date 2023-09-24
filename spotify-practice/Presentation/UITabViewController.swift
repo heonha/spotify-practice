@@ -8,13 +8,13 @@
 import UIKit
 import SnapKit
 
-final class UITabViewController: UIViewController {
+final class UITabViewController: UITabBarController {
+    
+    private let profileVC = ProfileViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        layout()
-        bind()
     }
     
     override func viewDidLayoutSubviews() {
@@ -22,15 +22,11 @@ final class UITabViewController: UIViewController {
     }
     
     private func configure() {
-        self.view.backgroundColor = .systemBlue 
-    }
-    
-    private func layout() {
-        
-    }
-    
-    private func bind() {
-        
+        self.view.backgroundColor = .systemBackground
+        let profileNC = UINavigationController(rootViewController: profileVC)
+        let profileItem = UITabBarItem(title: "프로필", image: UIImage(systemName: "person.fill"), tag: 0)
+        profileNC.tabBarItem = profileItem
+        self.viewControllers = [profileNC]
     }
     
 }

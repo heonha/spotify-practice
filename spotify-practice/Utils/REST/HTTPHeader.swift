@@ -16,6 +16,9 @@ enum HttpHeader {
     ///"Authorization": "Basic \(encodedToken)",
     case basicTokenHeader(clientId: String, clientSecret: String)
     
+    ///"Authorization": "Bearer \(encodedToken)",
+    case bearerTokenHeader(token: String)
+
     func get() -> [String: String] {
         switch self {
         case .applicationJson:
@@ -32,6 +35,8 @@ enum HttpHeader {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Authorization": "Basic \(encodedToken)",
             ]
+        case .bearerTokenHeader(let token):
+            return ["Authorization": "Bearer \(token)"]
         }
     }
     

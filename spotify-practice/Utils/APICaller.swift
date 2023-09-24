@@ -26,7 +26,11 @@ final class APICaller: CombineProtocol {
 
 extension APICaller {
     
-    func getCurrentUserProfile(token: String, completion: @escaping (UserProfileResult) -> Void) {
+    func getCurrentUserProfile(token: String?, completion: @escaping (UserProfileResult) -> Void) {
+        
+        guard let token = token else {
+            return completion(.failure(APICallerError.invalidToken(message: "엑세스 토큰이 없습니다.")))
+        }
         
         AuthManager.shared.checkShouldRefreshToken { result in
             switch result {
@@ -36,15 +40,14 @@ extension APICaller {
                 completion(.failure(APICallerError.invalidToken(message: error.localizedDescription)))
             }
         }
-        
+
         let endpoint = "/me"
-        let header = HttpHeader.applicationxwwwformurlencoded
-        let parameters = ["Authorization" : "Bearer \(token)"]
+        let header = HttpHeader.bearerTokenHeader(token: token)
 
         networkService.GET(headerType: header,
                            urlString: Constant.baseURL,
                            endPoint: endpoint,
-                           parameters: parameters,
+                           parameters: [:],
                            returnType: UserProfile.self)
         .timeout(10, scheduler: DispatchQueue.global())
         .retry(2)

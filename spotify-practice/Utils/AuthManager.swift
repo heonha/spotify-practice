@@ -147,4 +147,8 @@ final class AuthManager {
         UserDefaults.standard.setValue(Date().addingTimeInterval(.init(token.expiresIn)), forKey: UserDefaultsKeys.expiresIn)
     }
     
+    public func getAccessToken() -> String? {
+        return self.accessToken
+    }
+    
 }

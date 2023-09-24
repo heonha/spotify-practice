@@ -13,6 +13,8 @@
 		3949BF922AC0318E00935882 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF912AC0318E00935882 /* UserProfile.swift */; };
 		3949BF942AC0374300935882 /* SuccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF932AC0374300935882 /* SuccessType.swift */; };
 		3949BF962AC037B600935882 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF952AC037B600935882 /* UserDefaultsKeys.swift */; };
+		3949BF982AC0383100935882 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF972AC0383100935882 /* ProfileViewController.swift */; };
+		3949BF9A2AC0395D00935882 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF992AC0395D00935882 /* ProfileViewModel.swift */; };
 		39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B12ABEE9300087F956 /* AuthReturnData.swift */; };
 		39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B32ABEE9590087F956 /* NetworkError.swift */; };
 		39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */; };
@@ -43,6 +45,8 @@
 		3949BF912AC0318E00935882 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		3949BF932AC0374300935882 /* SuccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessType.swift; sourceTree = "<group>"; };
 		3949BF952AC037B600935882 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		3949BF972AC0383100935882 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3949BF992AC0395D00935882 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		39FC86B12ABEE9300087F956 /* AuthReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReturnData.swift; sourceTree = "<group>"; };
 		39FC86B32ABEE9590087F956 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMetheod.swift; sourceTree = "<group>"; };
@@ -148,8 +152,10 @@
 		39FD20422ABEAFDE008C6DF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				3949BF902AC0318900935882 /* User */,
 				39FD203E2ABEAF0E008C6DF5 /* UITabViewController.swift */,
+				3949BF972AC0383100935882 /* ProfileViewController.swift */,
+				3949BF992AC0395D00935882 /* ProfileViewModel.swift */,
+				3949BF902AC0318900935882 /* User */,
 				39FD20572ABEB878008C6DF5 /* Welcome */,
 			);
 			path = Presentation;
@@ -192,10 +198,10 @@
 		39FD20642ABED2F0008C6DF5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3949BF8E2AC02D4500935882 /* CombineProtocol.swift */,
 				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
 				3949BF8C2AC0277100935882 /* APICaller.swift */,
 				3949BF8A2AC0270100935882 /* REST */,
+				3949BF8E2AC02D4500935882 /* CombineProtocol.swift */,
 				3949BF932AC0374300935882 /* SuccessType.swift */,
 				3949BF952AC037B600935882 /* UserDefaultsKeys.swift */,
 			);
@@ -287,6 +293,7 @@
 				39FD203F2ABEAF0E008C6DF5 /* UITabViewController.swift in Sources */,
 				39FD20542ABEB80B008C6DF5 /* Keys.swift in Sources */,
 				39FC86B82ABEE9D50087F956 /* HTTPHeader.swift in Sources */,
+				3949BF9A2AC0395D00935882 /* ProfileViewModel.swift in Sources */,
 				39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */,
 				39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */,
 				39FD205F2ABEBCC3008C6DF5 /* UIViewPreview.swift in Sources */,
@@ -296,6 +303,7 @@
 				39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */,
 				3949BF922AC0318E00935882 /* UserProfile.swift in Sources */,
 				39FD20682ABED315008C6DF5 /* RestProtocol.swift in Sources */,
+				3949BF982AC0383100935882 /* ProfileViewController.swift in Sources */,
 				3949BF8D2AC0277100935882 /* APICaller.swift in Sources */,
 				3949BF962AC037B600935882 /* UserDefaultsKeys.swift in Sources */,
 				39FD20562ABEB869008C6DF5 /* AuthViewController.swift in Sources */,
