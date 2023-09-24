@@ -13,8 +13,12 @@
 		3949BF922AC0318E00935882 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF912AC0318E00935882 /* UserProfile.swift */; };
 		3949BF942AC0374300935882 /* SuccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF932AC0374300935882 /* SuccessType.swift */; };
 		3949BF962AC037B600935882 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF952AC037B600935882 /* UserDefaultsKeys.swift */; };
-		3949BF982AC0383100935882 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF972AC0383100935882 /* ProfileViewController.swift */; };
-		3949BF9A2AC0395D00935882 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF992AC0395D00935882 /* ProfileViewModel.swift */; };
+		3949BF982AC0383100935882 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF972AC0383100935882 /* AccountViewController.swift */; };
+		3949BF9A2AC0395D00935882 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF992AC0395D00935882 /* AccountViewModel.swift */; };
+		3949BF9F2AC0426F00935882 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF9E2AC0426F00935882 /* SettingsViewController.swift */; };
+		3949BFA32AC0472E00935882 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BFA22AC0472E00935882 /* HomeViewController.swift */; };
+		3949BFA62AC04F5B00935882 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BFA52AC04F5B00935882 /* Section.swift */; };
+		3949BFA82AC0634F00935882 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BFA72AC0634F00935882 /* CellData.swift */; };
 		39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B12ABEE9300087F956 /* AuthReturnData.swift */; };
 		39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B32ABEE9590087F956 /* NetworkError.swift */; };
 		39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */; };
@@ -45,8 +49,12 @@
 		3949BF912AC0318E00935882 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		3949BF932AC0374300935882 /* SuccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessType.swift; sourceTree = "<group>"; };
 		3949BF952AC037B600935882 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
-		3949BF972AC0383100935882 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		3949BF992AC0395D00935882 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		3949BF972AC0383100935882 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		3949BF992AC0395D00935882 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		3949BF9E2AC0426F00935882 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3949BFA22AC0472E00935882 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3949BFA52AC04F5B00935882 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		3949BFA72AC0634F00935882 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		39FC86B12ABEE9300087F956 /* AuthReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReturnData.swift; sourceTree = "<group>"; };
 		39FC86B32ABEE9590087F956 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMetheod.swift; sourceTree = "<group>"; };
@@ -138,6 +146,35 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		3949BFA02AC042A200935882 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3949BF972AC0383100935882 /* AccountViewController.swift */,
+				3949BF992AC0395D00935882 /* AccountViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3949BFA12AC042AA00935882 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3949BF9E2AC0426F00935882 /* SettingsViewController.swift */,
+				3949BFA02AC042A200935882 /* Profile */,
+				3949BFA52AC04F5B00935882 /* Section.swift */,
+				3949BFA72AC0634F00935882 /* CellData.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3949BFA42AC0476C00935882 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3949BFA22AC0472E00935882 /* HomeViewController.swift */,
+				3949BFA12AC042AA00935882 /* Settings */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		39FD201C2ABEA255008C6DF5 = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				39FD203E2ABEAF0E008C6DF5 /* UITabViewController.swift */,
-				3949BF972AC0383100935882 /* ProfileViewController.swift */,
-				3949BF992AC0395D00935882 /* ProfileViewModel.swift */,
+				3949BFA42AC0476C00935882 /* Home */,
 				3949BF902AC0318900935882 /* User */,
 				39FD20572ABEB878008C6DF5 /* Welcome */,
 			);
@@ -314,25 +350,29 @@
 				39FD20662ABED2FD008C6DF5 /* NetworkService.swift in Sources */,
 				3949BF942AC0374300935882 /* SuccessType.swift in Sources */,
 				39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */,
+				3949BFA82AC0634F00935882 /* CellData.swift in Sources */,
 				39FD203F2ABEAF0E008C6DF5 /* UITabViewController.swift in Sources */,
 				39FD20542ABEB80B008C6DF5 /* Keys.swift in Sources */,
 				39FC86B82ABEE9D50087F956 /* HTTPHeader.swift in Sources */,
-				3949BF9A2AC0395D00935882 /* ProfileViewModel.swift in Sources */,
+				3949BF9A2AC0395D00935882 /* AccountViewModel.swift in Sources */,
 				39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */,
+				3949BF9F2AC0426F00935882 /* SettingsViewController.swift in Sources */,
 				39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */,
 				39FD205F2ABEBCC3008C6DF5 /* UIViewPreview.swift in Sources */,
+				3949BFA32AC0472E00935882 /* HomeViewController.swift in Sources */,
 				39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */,
 				39FD20462ABEB013008C6DF5 /* WelcomeViewController.swift in Sources */,
 				39FD205D2ABEBC9E008C6DF5 /* UIViewControllerPreview.swift in Sources */,
 				39FD202B2ABEA255008C6DF5 /* SceneDelegate.swift in Sources */,
 				3949BF922AC0318E00935882 /* UserProfile.swift in Sources */,
 				39FD20682ABED315008C6DF5 /* RestProtocol.swift in Sources */,
-				3949BF982AC0383100935882 /* ProfileViewController.swift in Sources */,
+				3949BF982AC0383100935882 /* AccountViewController.swift in Sources */,
 				3949BF8D2AC0277100935882 /* APICaller.swift in Sources */,
 				3949BF962AC037B600935882 /* UserDefaultsKeys.swift in Sources */,
 				39FD20562ABEB869008C6DF5 /* AuthViewController.swift in Sources */,
 				39FD20632ABEC9C1008C6DF5 /* UIViewController+Extension.swift in Sources */,
 				3949BF8F2AC02D4500935882 /* CombineProtocol.swift in Sources */,
+				3949BFA62AC04F5B00935882 /* Section.swift in Sources */,
 				39FD20412ABEAF36008C6DF5 /* AuthManager.swift in Sources */,
 				3949BF882AC0098200935882 /* AuthError.swift in Sources */,
 			);
@@ -488,6 +528,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,6 +557,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -10,7 +10,7 @@ import SnapKit
 
 final class UITabViewController: UITabBarController {
     
-    private let profileVC = ProfileViewController()
+    private let homeVC = HomeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,13 @@ final class UITabViewController: UITabBarController {
     
     private func configure() {
         self.view.backgroundColor = .systemBackground
-        let profileNC = UINavigationController(rootViewController: profileVC)
-        let profileItem = UITabBarItem(title: "프로필", image: UIImage(systemName: "person.fill"), tag: 0)
-        profileNC.tabBarItem = profileItem
-        self.viewControllers = [profileNC]
+        
+        self.tabBar.tintColor = .label
+        
+        let homeNC = UINavigationController(rootViewController: homeVC)
+        let homeItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), tag: 0)
+        homeNC.tabBarItem = homeItem
+        self.viewControllers = [homeNC]
     }
     
 }
