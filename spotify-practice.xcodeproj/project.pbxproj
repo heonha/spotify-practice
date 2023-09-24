@@ -19,6 +19,8 @@
 		3949BFA32AC0472E00935882 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BFA22AC0472E00935882 /* HomeViewController.swift */; };
 		3949BFA62AC04F5B00935882 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BFA52AC04F5B00935882 /* Section.swift */; };
 		3949BFA82AC0634F00935882 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BFA72AC0634F00935882 /* CellData.swift */; };
+		3949BFAB2AC063ED00935882 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3949BFAA2AC063ED00935882 /* SDWebImage */; };
+		3949BFAE2AC0656400935882 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3949BFAD2AC0656400935882 /* FirebaseAnalytics */; };
 		39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B12ABEE9300087F956 /* AuthReturnData.swift */; };
 		39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B32ABEE9590087F956 /* NetworkError.swift */; };
 		39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */; };
@@ -85,7 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3949BFAB2AC063ED00935882 /* SDWebImage in Frameworks */,
 				39FD204E2ABEB0B1008C6DF5 /* SnapKit in Frameworks */,
+				3949BFAE2AC0656400935882 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +290,8 @@
 			name = "spotify-practice";
 			packageProductDependencies = (
 				39FD204D2ABEB0B1008C6DF5 /* SnapKit */,
+				3949BFAA2AC063ED00935882 /* SDWebImage */,
+				3949BFAD2AC0656400935882 /* FirebaseAnalytics */,
 			);
 			productName = "spotify-practice";
 			productReference = 39FD20252ABEA255008C6DF5 /* spotify-practice.app */;
@@ -318,6 +324,8 @@
 			mainGroup = 39FD201C2ABEA255008C6DF5;
 			packageReferences = (
 				39FD204C2ABEB0B1008C6DF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3949BFA92AC063ED00935882 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3949BFAC2AC0656400935882 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 39FD20262ABEA255008C6DF5 /* Products */;
 			projectDirPath = "";
@@ -596,6 +604,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3949BFA92AC063ED00935882 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.18.2;
+			};
+		};
+		3949BFAC2AC0656400935882 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
 		39FD204C2ABEB0B1008C6DF5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:SnapKit/SnapKit.git";
@@ -607,6 +631,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3949BFAA2AC063ED00935882 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3949BFA92AC063ED00935882 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3949BFAD2AC0656400935882 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3949BFAC2AC0656400935882 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		39FD204D2ABEB0B1008C6DF5 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 39FD204C2ABEB0B1008C6DF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
