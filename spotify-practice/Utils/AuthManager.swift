@@ -10,10 +10,10 @@ import Combine
 
 final class AuthManager {
     
-    typealias RequestResult = Result<Void, Error>
+    typealias RequestResult = Result<SuccessType, Error>
     
     static let shared = AuthManager()
-    private let networkService = NetworkService()
+    private let networkService = NetworkService.shared
     var cancellables = Set<AnyCancellable>()
     
     private struct Constant {
@@ -70,7 +70,7 @@ final class AuthManager {
         if shouldRefresh {
             self.getTokenFromRefreshToken(refreshToken: refreshToken, completion: completion)
         } else {
-            completion(.failure(AuthError.shoudNotRefreshToken(message: "토큰 갱신이 필요하지 않습니다.")))
+            completion(.success(.normal))
         }
     }
     
@@ -131,20 +131,20 @@ final class AuthManager {
             } receiveValue: { [weak self] authData in
                 print("Auth-data-debug: \(authData)")
                 self?.cacheToken(authData)
-                completion(.success(()))
+                completion(.success(.normal))
             }
             .store(in: &cancellables)
     }
     
     /// UserDefaults로 토큰을 캐시합니다. (평문 저장)
     private func cacheToken(_ token: AuthReturnData) {
-        UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
+        UserDefaults.standard.setValue(token.accessToken, forKey: UserDefaultsKeys.accessToken)
         
         if token.refreshToken != nil {
-            UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
+            UserDefaults.standard.setValue(token.refreshToken, forKey: UserDefaultsKeys.refreshToken)
         }
         
-        UserDefaults.standard.setValue(Date().addingTimeInterval(.init(token.expiresIn)), forKey: "expiresIn")
+        UserDefaults.standard.setValue(Date().addingTimeInterval(.init(token.expiresIn)), forKey: UserDefaultsKeys.expiresIn)
     }
     
 }

@@ -10,6 +10,10 @@ import Combine
 
 final class NetworkService: RestProtocol {
     
+    static let shared = NetworkService()
+    
+    private init() {}
+    
     private var session = URLSession.shared
     var cancellables = Set<AnyCancellable>()
     

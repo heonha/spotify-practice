@@ -57,7 +57,7 @@ final class WelcomeViewController: UIViewController {
         self.push(authVC, animated: true)
     }
     
-    private func handleSignIn(success: Result<Void, Error>) {
+    private func handleSignIn(success: Result<SuccessType, Error>) {
         switch success {
         case .success(_):
             let mainVC = UITabViewController()

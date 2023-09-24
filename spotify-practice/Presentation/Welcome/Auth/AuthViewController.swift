@@ -20,7 +20,7 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
         return webView
     }()
     
-    public var completionHandler: ((Result<Void, Error>) -> Void)?
+    public var completionHandler: ((Result<SuccessType, Error>) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +60,7 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
                 if let completionHandler = self?.completionHandler {
                     completionHandler(result)
                 }
+                
             }
     }
     
