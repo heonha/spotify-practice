@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3949BF882AC0098200935882 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949BF872AC0098200935882 /* AuthError.swift */; };
 		39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B12ABEE9300087F956 /* AuthReturnData.swift */; };
 		39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B32ABEE9590087F956 /* NetworkError.swift */; };
 		39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3949BF872AC0098200935882 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		39FC86B12ABEE9300087F956 /* AuthReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReturnData.swift; sourceTree = "<group>"; };
 		39FC86B32ABEE9590087F956 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMetheod.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				39FD20452ABEB013008C6DF5 /* WelcomeViewController.swift */,
 				39FD20552ABEB869008C6DF5 /* AuthViewController.swift */,
 				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
+				3949BF872AC0098200935882 /* AuthError.swift */,
 				39FC86B12ABEE9300087F956 /* AuthReturnData.swift */,
 			);
 			path = Welcome;
@@ -255,6 +258,7 @@
 				39FD20562ABEB869008C6DF5 /* AuthViewController.swift in Sources */,
 				39FD20632ABEC9C1008C6DF5 /* UIViewController+Extension.swift in Sources */,
 				39FD20412ABEAF36008C6DF5 /* AuthManager.swift in Sources */,
+				3949BF882AC0098200935882 /* AuthError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

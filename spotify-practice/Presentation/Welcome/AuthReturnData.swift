@@ -10,7 +10,7 @@ import Foundation
 struct AuthReturnData: Codable {
     let accessToken: String
     let expiresIn: Int
-    let refreshToken: String
+    let refreshToken: String?
     let scope: String
     
     private enum CodingKeys: String, CodingKey {

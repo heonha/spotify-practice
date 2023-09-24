@@ -11,6 +11,9 @@ enum HttpHeader {
     
     case applicationJson
     case applicationxwwwformurlencoded
+    
+    ///"Content-Type": "application/x-www-form-urlencoded",
+    ///"Authorization": "Basic \(encodedToken)",
     case basicTokenHeader(clientId: String, clientSecret: String)
     
     func get() -> [String: String] {

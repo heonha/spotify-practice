@@ -20,7 +20,7 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
         return webView
     }()
     
-    public var completionHandler: ((Bool) -> Void)?
+    public var completionHandler: ((Result<Void, Error>) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
             .first(where: { $0.name == "code"}) else { return }
         
         AuthManager.shared
-            .exchangeCodeForToken(code: code.value ?? "") { [weak self] result in
+            .getTokenFromCode(code: code.value ?? "") { [weak self] result in
                 if let completionHandler = self?.completionHandler {
                     completionHandler(result)
                 }

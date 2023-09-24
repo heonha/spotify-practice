@@ -57,12 +57,24 @@ final class WelcomeViewController: UIViewController {
         self.push(authVC, animated: true)
     }
     
-    private func handleSignIn(success: Bool) {
-        if success {
+    private func handleSignIn(success: Result<Void, Error>) {
+        switch success {
+        case .success(_):
             let mainVC = UITabViewController()
             mainVC.modalPresentationStyle = .fullScreen
             self.present(mainVC, animated: false)
+        case .failure(let error):
+            showAlert(title: "로그인 오류", message: "문제가 발생했습니다.\n다시 로그인 해주세요.\n\(error)")
         }
+    }
+    
+    private func showAlert(title: String? = nil, message: String? = nil) {
+        let alertVC = UIAlertController()
+        alertVC.title = title
+        alertVC.message = message
+        let cancel = UIAlertAction(title: "확인", style: .cancel)
+        alertVC.addAction(cancel)
+        self.present(alertVC, animated: true)
     }
     
 }
