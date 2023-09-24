@@ -97,7 +97,6 @@
 		3949BF8A2AC0270100935882 /* REST */ = {
 			isa = PBXGroup;
 			children = (
-				39FD20652ABED2FD008C6DF5 /* NetworkService.swift */,
 				39FD20672ABED315008C6DF5 /* RestProtocol.swift */,
 				39FC86B32ABEE9590087F956 /* NetworkError.swift */,
 				39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */,
@@ -112,6 +111,31 @@
 				3949BF912AC0318E00935882 /* UserProfile.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		3949BF9B2AC03F9500935882 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
+				3949BF8C2AC0277100935882 /* APICaller.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		3949BF9C2AC03FA100935882 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				39FD20652ABED2FD008C6DF5 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3949BF9D2AC03FB200935882 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3949BF8E2AC02D4500935882 /* CombineProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		39FD201C2ABEA255008C6DF5 = {
@@ -138,6 +162,8 @@
 				39FD20282ABEA255008C6DF5 /* AppDelegate.swift */,
 				39FD202A2ABEA255008C6DF5 /* SceneDelegate.swift */,
 				39FD20422ABEAFDE008C6DF5 /* Presentation */,
+				3949BF9B2AC03F9500935882 /* Managers */,
+				3949BF9C2AC03FA100935882 /* Services */,
 				39FD20642ABED2F0008C6DF5 /* Utils */,
 				39FD20612ABEC9B5008C6DF5 /* Extension */,
 				39FD205B2ABEBC8F008C6DF5 /* Previews */,
@@ -198,10 +224,8 @@
 		39FD20642ABED2F0008C6DF5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				39FD20402ABEAF36008C6DF5 /* AuthManager.swift */,
-				3949BF8C2AC0277100935882 /* APICaller.swift */,
+				3949BF9D2AC03FB200935882 /* Protocols */,
 				3949BF8A2AC0270100935882 /* REST */,
-				3949BF8E2AC02D4500935882 /* CombineProtocol.swift */,
 				3949BF932AC0374300935882 /* SuccessType.swift */,
 				3949BF952AC037B600935882 /* UserDefaultsKeys.swift */,
 			);
