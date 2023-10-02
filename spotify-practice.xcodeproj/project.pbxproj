@@ -30,6 +30,9 @@
 		39842F7F2ACAC344006008DC /* PlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39842F7E2ACAC344006008DC /* PlaylistResponse.swift */; };
 		39842F812ACAC34E006008DC /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39842F802ACAC34E006008DC /* Playlist.swift */; };
 		39842F832ACAC356006008DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39842F822ACAC356006008DC /* User.swift */; };
+		39842F852ACAC5BE006008DC /* RecommendedGenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39842F842ACAC5BE006008DC /* RecommendedGenresResponse.swift */; };
+		39842F872ACAC91E006008DC /* RecommendationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39842F862ACAC91E006008DC /* RecommendationsResponse.swift */; };
+		39842F892ACAC9FF006008DC /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39842F882ACAC9FF006008DC /* AudioTrack.swift */; };
 		39FC86B22ABEE9300087F956 /* AuthReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B12ABEE9300087F956 /* AuthReturnData.swift */; };
 		39FC86B42ABEE9590087F956 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B32ABEE9590087F956 /* NetworkError.swift */; };
 		39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */; };
@@ -75,6 +78,9 @@
 		39842F7E2ACAC344006008DC /* PlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistResponse.swift; sourceTree = "<group>"; };
 		39842F802ACAC34E006008DC /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		39842F822ACAC356006008DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		39842F842ACAC5BE006008DC /* RecommendedGenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedGenresResponse.swift; sourceTree = "<group>"; };
+		39842F862ACAC91E006008DC /* RecommendationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponse.swift; sourceTree = "<group>"; };
+		39842F882ACAC9FF006008DC /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		39FC86B12ABEE9300087F956 /* AuthReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReturnData.swift; sourceTree = "<group>"; };
 		39FC86B32ABEE9590087F956 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		39FC86B52ABEE9780087F956 /* HTTPMetheod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMetheod.swift; sourceTree = "<group>"; };
@@ -209,6 +215,9 @@
 				39842F7E2ACAC344006008DC /* PlaylistResponse.swift */,
 				39842F802ACAC34E006008DC /* Playlist.swift */,
 				39842F822ACAC356006008DC /* User.swift */,
+				39842F842ACAC5BE006008DC /* RecommendedGenresResponse.swift */,
+				39842F862ACAC91E006008DC /* RecommendationsResponse.swift */,
+				39842F882ACAC9FF006008DC /* AudioTrack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,6 +411,7 @@
 				39FD20292ABEA255008C6DF5 /* AppDelegate.swift in Sources */,
 				3949BF9F2AC0426F00935882 /* SettingsViewController.swift in Sources */,
 				39842F812ACAC34E006008DC /* Playlist.swift in Sources */,
+				39842F852ACAC5BE006008DC /* RecommendedGenresResponse.swift in Sources */,
 				39842F772ACAC23B006008DC /* Album.swift in Sources */,
 				39842F7F2ACAC344006008DC /* PlaylistResponse.swift in Sources */,
 				39FC86B62ABEE9780087F956 /* HTTPMetheod.swift in Sources */,
@@ -415,12 +425,14 @@
 				39FD20682ABED315008C6DF5 /* RestProtocol.swift in Sources */,
 				39842F832ACAC356006008DC /* User.swift in Sources */,
 				3949BF982AC0383100935882 /* AccountViewController.swift in Sources */,
+				39842F892ACAC9FF006008DC /* AudioTrack.swift in Sources */,
 				3949BF8D2AC0277100935882 /* APICaller.swift in Sources */,
 				3949BF962AC037B600935882 /* UserDefaultsKeys.swift in Sources */,
 				39FD20562ABEB869008C6DF5 /* AuthViewController.swift in Sources */,
 				39842F732ACAC226006008DC /* NewReleaseResponse.swift in Sources */,
 				39FD20632ABEC9C1008C6DF5 /* UIViewController+Extension.swift in Sources */,
 				3949BF8F2AC02D4500935882 /* CombineProtocol.swift in Sources */,
+				39842F872ACAC91E006008DC /* RecommendationsResponse.swift in Sources */,
 				3949BFA62AC04F5B00935882 /* Section.swift in Sources */,
 				39FD20412ABEAF36008C6DF5 /* AuthManager.swift in Sources */,
 				39842F7B2ACAC25C006008DC /* APICallerError.swift in Sources */,

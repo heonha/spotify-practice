@@ -37,10 +37,26 @@ final class HomeViewController: UIViewController {
     }
     
     private func fetchData() {
-        APICaller.shared.getAllFeaturedPlaylists { result in
+        APICaller.shared.getAllRecommendationGenres { result in
             switch result {
             case .success(let data):
-                print(data)
+                let genres = data.genres
+                var seeds = Set<String>()
+                while seeds.count < 5 {
+                    if let random = genres.randomElement() {
+                        seeds.insert(random)
+                    }
+                }
+                
+                APICaller.shared.getAllRecommendations(genres: seeds) { result in
+                    switch result {
+                    case .success(let data):
+                        print(data)
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+                
             case .failure(let error):
                 print(error)
             }

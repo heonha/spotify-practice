@@ -21,6 +21,9 @@ final class APICaller: CombineProtocol {
         static let getNewReleases = "/browse/new-releases"
         static let getAllFeaturedPlaylists = "/browse/featured-playlists"
         static let getCurrentUserProfile = "/me"
+        static let getAllRecommendations = "/recommendations"
+        static let getAllRecommendationsGenre = "/recommendations/available-genre-seeds"
+
     }
     
 }
@@ -84,6 +87,21 @@ extension APICaller {
     /// 모든 추천 플레이리스트 가져오기
     func getAllFeaturedPlaylists(completion: @escaping ((Result<FeaturedPlaylistsResponse, Error>) -> Void)) {
         createRequest(method: .GET, endpoint: Constant.getAllFeaturedPlaylists, parameters: [:], completion: completion)
+    }
+    
+    /// 모든 추천 정보 가져오기
+    func getAllRecommendations(limit: Int = 2, genres: Set<String>, completion: @escaping ((Result<RecommendationsResponse, Error>) -> Void)) {
+        let seeds = genres.joined(separator: ",")
+        let parameters = [
+            "seed_genres": seeds,
+            "limit" : limit.description
+        ]
+        createRequest(method: .GET, endpoint: Constant.getAllRecommendations, parameters: parameters, completion: completion)
+    }
+    
+    /// 모든 장르 가져오기
+    func getAllRecommendationGenres(completion: @escaping ((Result<RecommendedGenresResponse, Error>) -> Void)) {
+        createRequest(method: .GET, endpoint: Constant.getAllRecommendationsGenre, completion: completion)
     }
     
 }
