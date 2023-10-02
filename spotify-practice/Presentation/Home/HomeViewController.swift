@@ -13,11 +13,13 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        self.navigationItem.title = "탐색"
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layout()
+        fetchData()
     }
     
     private func configure() {
@@ -32,6 +34,17 @@ final class HomeViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = settingsItem
 
+    }
+    
+    private func fetchData() {
+        APICaller.shared.getAllFeaturedPlaylists { result in
+            switch result {
+            case .success(let data):
+                print(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     @objc private func pushSettingsVC() {

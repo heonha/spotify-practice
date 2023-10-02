@@ -21,98 +21,73 @@ final class NetworkService: RestProtocol {
         cancellables = .init()
     }
     
-    func GET<T>(headerType: HttpHeader,
-                urlString baseUrl: String,
-                endPoint: String,
-                parameters: [String: String] = [:],
-                returnType: T.Type) -> Future<T, Error> where T: Codable {
-        return Future<T, Error> { [weak self] promise in
-            guard let self = self else {
-                return promise(.failure(NetworkError.selfIsNil))
-            }
-            
-            let urlString = "\(baseUrl)\(endPoint)\(parameterQueryHandler(from: parameters))"
-            print("DEBUG urlString: \(urlString)")
-            guard let url = URL(string: urlString) else {
-                return promise(.failure(NetworkError.invalidUrl))
-            }
-            
-            var request = URLRequest(url: url)
-            request.allHTTPHeaderFields = headerType.get()
-            request.httpMethod = HttpMethod.GET.rawValue
-
-            tryDataTaskPublisher(request: request)
-                .decode(type: T.self, decoder: JSONDecoder())
-                .receive(on: RunLoop.main)
-                .sink(receiveCompletion: { (completion) in
-                    if case let .failure(error) = completion {
-                        switch error {
-                        case let decodingError as DecodingError:
-                            promise(.failure(decodingError))
-                        case let apiError as NetworkError:
-                            promise(.failure(apiError))
-                        default:
-                            promise(.failure(error))
-                        }
+    func request<T>(method: HttpMethod,
+                    headerType: HttpHeader,
+                    urlString baseUrl: String,
+                    endPoint: String,
+                    parameters: [String : String],
+                    returnType: T.Type) -> Future<T, Error> where T: Decodable {
+            return Future<T, Error> { [weak self] promise in
+                guard let self = self else {
+                    return promise(.failure(NetworkError.selfIsNil))
+                }
+                
+                var request: URLRequest
+                
+                switch method {
+                case .GET:
+                    let urlString = "\(baseUrl)\(endPoint)\(parameterQueryHandler(from: parameters))"
+                    print("DEBUG urlString: \(urlString)")
+                    guard let url = URL(string: urlString) else {
+                        return promise(.failure(NetworkError.invalidUrl))
                     }
-                }, receiveValue: {
-                    promise(.success($0))
-                })
-                .store(in: &self.cancellables)
-        }
-    }
-    
-    func POST<T>(headerType: HttpHeader,
-                 urlString baseUrl: String,
-                 endPoint: String,
-                 body rawBody: [String: String] = [:],
-                 returnType: T.Type) -> Future<T, Error> where T: Codable {
-        return Future<T, Error> { [weak self] promise in
-            
-            guard let self = self else {
-                return promise(.failure(NetworkError.selfIsNil))
-            }
-            
-            let urlString = "\(baseUrl)\(endPoint)"
-            print("DEBUG urlString: \(urlString)")
-            guard let url = URL(string: urlString) else {
-                return promise(.failure(NetworkError.invalidUrl))
-            }
-            
-            let queryItems: [URLQueryItem] = rawBody
-                .map { item in
-                return URLQueryItem(name: item.key, value: item.value)
-            }
-            
-            var bodyComponent = URLComponents()
-            bodyComponent.queryItems = queryItems
-            let httpBody = bodyComponent.query?.data(using: .utf8)
-
-            var request = URLRequest(url: url)
-            request.allHTTPHeaderFields = headerType.get()
-            request.httpMethod = HttpMethod.POST.rawValue
-            request.httpBody = httpBody
-                        
-            tryDataTaskPublisher(request: request)
-                .decode(type: T.self, decoder: JSONDecoder())
-                .receive(on: RunLoop.main)
-                .sink(receiveCompletion: { (completion) in
-                    if case let .failure(error) = completion {
-                        switch error {
-                        case let decodingError as DecodingError:
-                            promise(.failure(decodingError))
-                        case let apiError as NetworkError:
-                            promise(.failure(apiError))
-                        default:
-                            promise(.failure(error))
-                        }
+                    
+                    request = URLRequest(url: url)
+                    request.allHTTPHeaderFields = headerType.get()
+                    request.httpMethod = HttpMethod.GET.rawValue
+                    
+                case .POST, .PUT, .DELETE:
+                    let urlString = "\(baseUrl)\(endPoint)"
+                    print("DEBUG urlString: \(urlString)")
+                    guard let url = URL(string: urlString) else {
+                        return promise(.failure(NetworkError.invalidUrl))
                     }
-                }, receiveValue: {
-                    promise(.success($0))
-                })
-                .store(in: &self.cancellables)
+                    
+                    let queryItems: [URLQueryItem] = parameters
+                        .map { item in
+                            return URLQueryItem(name: item.key, value: item.value)
+                        }
+                    
+                    var bodyComponent = URLComponents()
+                    bodyComponent.queryItems = queryItems
+                    let httpBody = bodyComponent.query?.data(using: .utf8)
+                    
+                    request = URLRequest(url: url)
+                    request.allHTTPHeaderFields = headerType.get()
+                    request.httpMethod = HttpMethod.POST.rawValue
+                    request.httpBody = httpBody
+                }
+                
+                tryDataTaskPublisher(request: request)
+                    .decode(type: T.self, decoder: JSONDecoder())
+                    .receive(on: RunLoop.main)
+                    .sink(receiveCompletion: { (completion) in
+                        if case let .failure(error) = completion {
+                            switch error {
+                            case let decodingError as DecodingError:
+                                promise(.failure(decodingError))
+                            case let apiError as NetworkError:
+                                promise(.failure(apiError))
+                            default:
+                                promise(.failure(error))
+                            }
+                        }
+                    }, receiveValue: {
+                        promise(.success($0))
+                    })
+                    .store(in: &self.cancellables)
+            }
         }
-    }
     
 }
 

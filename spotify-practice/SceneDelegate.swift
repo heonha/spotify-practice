@@ -15,6 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
+
+        AuthManager.shared.checkShouldRefreshToken(completion: nil)
         
         if AuthManager.shared.isSignIn {
             window?.rootViewController = UITabViewController()

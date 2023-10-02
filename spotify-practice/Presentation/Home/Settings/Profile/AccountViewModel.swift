@@ -13,8 +13,7 @@ final class AccountViewModel {
     private let authManager = AuthManager.shared
     
     func getProfile(completion: @escaping(Result<UserProfile, Error>) -> Void) {
-        guard let token = authManager.getAccessToken() else { return }
-        apiCaller.getCurrentUserProfile(token: token) { result in
+        apiCaller.getCurrentUserProfile { result in
             completion(result)
         }
     }

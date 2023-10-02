@@ -54,14 +54,14 @@ final class AuthManager {
     }
     
     /// Token 유효 기간이 이 5분 이내로 남았을 때 refresh token을 이용하여 토큰을 갱신합니다.
-    public func checkShouldRefreshToken(completion: @escaping(RequestResult) -> Void) {
+    public func checkShouldRefreshToken(completion: ((RequestResult) -> Void)?) {
         guard let expirationDate = tokenExpirationDate else {
-            completion(.failure(AuthError.shoudNotRefreshToken(message: "토큰 만료일이 없습니다.")))
+            completion?(.failure(AuthError.shoudNotRefreshToken(message: "토큰 만료일이 없습니다.")))
             return
         }
         
         guard let refreshToken = self.refreshToken else {
-            completion(.failure(AuthError.shoudNotRefreshToken(message: "Refresh Token 값이 없습니다.")))
+            completion?(.failure(AuthError.shoudNotRefreshToken(message: "Refresh Token 값이 없습니다.")))
             return
         }
         
@@ -70,8 +70,12 @@ final class AuthManager {
         if shouldRefresh {
             self.getTokenFromRefreshToken(refreshToken: refreshToken, completion: completion)
         } else {
-            completion(.success(.normal))
+            completion?(.success(.normal))
         }
+    }
+    
+    func getToken() -> String? {
+        return accessToken
     }
     
     /// 로그인 시 서버에서 code를 발급받아 access token을 발급받습니다.
@@ -89,10 +93,10 @@ final class AuthManager {
     }
     
     /// refresh token을 이용하여 access token을 갱신합니다.
-    public func getTokenFromRefreshToken(refreshToken: String, completion: @escaping(RequestResult) -> Void) {
+    public func getTokenFromRefreshToken(refreshToken: String, completion: ((RequestResult) -> Void)?) {
         
         guard let url = URL(string: Constant.requestTokenURL) else {
-            completion(.failure(AuthError.refreshTokenIsNil()))
+            completion?(.failure(AuthError.refreshTokenIsNil()))
             return
         }
         
@@ -111,13 +115,14 @@ final class AuthManager {
     private func requestTokenWithAPI(url: URL,
                                      header: HttpHeader,
                                      body: [String : String],
-                                     completion: @escaping(RequestResult) -> Void) {
+                                     completion: ((RequestResult) -> Void)?) {
         networkService
-            .POST(headerType: header,
-                  urlString: url.absoluteString,
-                  endPoint: "",
-                  body: body,
-                  returnType: AuthReturnData.self)
+            .request(method: .POST,
+                     headerType: header,
+                     urlString: url.absoluteString,
+                     endPoint: "",
+                     parameters: body,
+                     returnType: AuthReturnData.self)
             .timeout(10, scheduler: DispatchQueue.global())
             .receive(on: RunLoop.main)
             .sink { result in
@@ -126,12 +131,12 @@ final class AuthManager {
                     print("finished")
                 case .failure(let error):
                     print(error)
-                    completion(.failure(error))
+                    completion?(.failure(error))
                 }
             } receiveValue: { [weak self] authData in
                 print("Auth-data-debug: \(authData)")
                 self?.cacheToken(authData)
-                completion(.success(.normal))
+                completion?(.success(.normal))
             }
             .store(in: &cancellables)
     }

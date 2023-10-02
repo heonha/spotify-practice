@@ -10,16 +10,12 @@ import Combine
 
 protocol RestProtocol {
     
-    func GET<T: Codable>(headerType: HttpHeader,
-                         urlString: String,
-                         endPoint: String,
-                         parameters: [String: String],
-                         returnType: T.Type) -> Future<T, Error>
-    
-    func POST<T: Codable>(headerType: HttpHeader,
-                          urlString: String,
-                          endPoint: String,
-                          body: [String: String],
-                          returnType: T.Type) -> Future<T, Error>
+    func request<T: Decodable>(
+        method: HttpMethod,
+        headerType: HttpHeader,
+        urlString baseUrl: String,
+        endPoint: String,
+        parameters: [String: String],
+        returnType: T.Type) -> Future<T, Error>
     
 }
