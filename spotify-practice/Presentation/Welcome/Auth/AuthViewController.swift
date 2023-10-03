@@ -39,7 +39,11 @@ final class AuthViewController: UIViewController, WKNavigationDelegate {
     
     private func configure() {
         webView.navigationDelegate = self
-        webView.load(.init(url: AuthManager.shared.signInURL!))
+        if let url = AuthManager.shared.signInURL {
+            webView.load(.init(url: url))
+        } else {
+            print("로그인 URL이 잘못됨")
+        }
     }
     
     private func layout() {

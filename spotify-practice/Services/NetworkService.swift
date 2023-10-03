@@ -113,7 +113,6 @@ extension NetworkService {
     private func tryDataTaskPublisher(request: URLRequest) -> Publishers.TryMap<URLSession.DataTaskPublisher, Data> {
         return self.session.dataTaskPublisher(for: request)
             .tryMap { (data, response) -> Data in
-                print("DEBUG data: \(String(decoding: data, as: UTF8.self))")
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw NetworkError.responseError
                 }

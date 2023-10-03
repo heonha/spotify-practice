@@ -9,4 +9,5 @@ import Foundation
 
 enum APICallerError: Error {
     case invalidToken(message: String = "")
+    case failedToGetData
 }

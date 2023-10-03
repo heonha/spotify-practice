@@ -23,6 +23,14 @@ final class APICaller: CombineProtocol {
         static let getCurrentUserProfile = "/me"
         static let getAllRecommendations = "/recommendations"
         static let getAllRecommendationsGenre = "/recommendations/available-genre-seeds"
+        
+        static func getAlbum(id: String) -> String {
+            return "/albums/\(id)"
+        }
+        
+        static func getPlaylist(id: String) -> String {
+            return "/playlists/\(id)"
+        }
 
     }
     
@@ -30,15 +38,25 @@ final class APICaller: CombineProtocol {
 
 extension APICaller {
     
+    // MARK: - Albums
+    func getAlbumDetails(for album: Album, completion: @escaping(Result<AlbumDetailResponse, Error>) -> Void) {
+        createRequest(method: .GET, endpoint: Constant.getAlbum(id: album.id), parameters: [:], completion: completion)
+    }
+    
+    // MARK: - Playlists
+    
+    func getPlaylistDetails(for playlist: Playlist, completion: @escaping(Result<PlaylistDetailResponse, Error>) -> Void ) {
+        createRequest(method: .GET, endpoint: Constant.getPlaylist(id: playlist.id), parameters: [:], completion: completion)
+    }
+    
+    // MARK: - Profile
+    
+    
     
     func createRequest<T: Codable>(method: HttpMethod,
                                    endpoint: String,
                                    parameters: [String: String] = [:],
                                    completion: @escaping (Result<T, Error>) -> Void) {
-        
-        guard let token = AuthManager.shared.getToken() else {
-            return completion(.failure(APICallerError.invalidToken(message: "엑세스 토큰이 없습니다.")))
-        }
         
         AuthManager.shared.checkShouldRefreshToken { result in
             switch result {
@@ -49,6 +67,10 @@ extension APICaller {
             }
         }
         
+        guard let token = AuthManager.shared.getToken() else {
+            return completion(.failure(APICallerError.invalidToken(message: "엑세스 토큰이 없습니다.")))
+        }
+        
         let header = HttpHeader.bearerTokenHeader(token: token)
         
         networkService.request(method: method,
@@ -57,7 +79,7 @@ extension APICaller {
                                endPoint: endpoint,
                                parameters: parameters,
                                returnType: T.self)
-        .timeout(10, scheduler: DispatchQueue.global())
+        .timeout(5, scheduler: DispatchQueue.global())
         .retry(2)
         .receive(on: DispatchQueue.main)
         .sink { result in
@@ -68,6 +90,7 @@ extension APICaller {
                 completion(.failure(error))
             }
         } receiveValue: { data in
+            print("DEBUG: \(data)")
             completion(.success(data))
         }
         .store(in: &cancellables)
@@ -79,7 +102,7 @@ extension APICaller {
     }
     
     /// 신규 앨범 가져오기
-    func getNewReleases(limit: Int = 2, completion: @escaping ((Result<NewReleaseResponse, Error>) -> Void)) {
+    func getNewReleases(limit: Int = 10, completion: @escaping ((Result<NewReleaseResponse, Error>) -> Void)) {
         let parameters = ["limit" : limit.description]
         createRequest(method: .GET, endpoint: Constant.getNewReleases, parameters: parameters, completion: completion)
     }
@@ -90,7 +113,9 @@ extension APICaller {
     }
     
     /// 모든 추천 정보 가져오기
-    func getAllRecommendations(limit: Int = 2, genres: Set<String>, completion: @escaping ((Result<RecommendationsResponse, Error>) -> Void)) {
+    func getAllRecommendations(limit: Int = 10, genres: Set<String>, completion: @escaping ((Result<RecommendationsResponse, Error>) -> Void)) {
+        print("MSG: getAllRecommendations를 요청합니다")
+
         let seeds = genres.joined(separator: ",")
         let parameters = [
             "seed_genres": seeds,
@@ -101,6 +126,7 @@ extension APICaller {
     
     /// 모든 장르 가져오기
     func getAllRecommendationGenres(completion: @escaping ((Result<RecommendedGenresResponse, Error>) -> Void)) {
+        print("MSG: getAllRecommendationGenres를 요청합니다")
         createRequest(method: .GET, endpoint: Constant.getAllRecommendationsGenre, completion: completion)
     }
     

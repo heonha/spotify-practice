@@ -28,8 +28,8 @@ final class AuthManager {
     var signInURL: URL? {
         let code = "code"
         let parameter = "?response_type=\(code)&client_id=\(Keys.clientId)&scope=\(Constant.scope)&redirect_uri=\(Constant.redirectURI)&show_dialog=TRUE"
-        let url = URL(string: Constant.baseURL + parameter)
-        return url
+        let urlString = Constant.baseURL + parameter
+        return URL(string: urlString)
     }
     
     var isSignIn: Bool {
@@ -37,7 +37,8 @@ final class AuthManager {
     }
     
     private var accessToken: String? {
-        return UserDefaults.standard.string(forKey: "accessToken")
+        let token = UserDefaults.standard.string(forKey: "accessToken")
+        return token
     }
     
     private var refreshToken: String? {
@@ -134,7 +135,6 @@ final class AuthManager {
                     completion?(.failure(error))
                 }
             } receiveValue: { [weak self] authData in
-                print("Auth-data-debug: \(authData)")
                 self?.cacheToken(authData)
                 completion?(.success(.normal))
             }

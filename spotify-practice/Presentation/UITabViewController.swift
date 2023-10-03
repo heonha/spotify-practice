@@ -26,7 +26,7 @@ final class UITabViewController: UITabBarController {
         
         self.tabBar.tintColor = .label
         
-        let homeNC = UINavigationController(rootViewController: homeVC)
+        let homeNC = BaseNavigationController(rootViewController: homeVC)
         let homeItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), tag: 0)
         homeNC.tabBarItem = homeItem
         self.viewControllers = [homeNC]

@@ -28,6 +28,7 @@ final class SettingsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layout()
+        
     }
     
     private func configure() {        
@@ -36,6 +37,15 @@ final class SettingsViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = .black
+        
+        APICaller.shared.getAllFeaturedPlaylists { result in
+            switch result {
+            case .success(let data):
+                print("DEBUGS: \(data)")
+            case .failure(let error):
+                print("DEBUGS ERROR: \(error.localizedDescription)")
+            }
+        }
     }
     
     private func configureSections() {
