@@ -44,15 +44,11 @@ extension APICaller {
     }
     
     // MARK: - Playlists
-    
     func getPlaylistDetails(for playlist: Playlist, completion: @escaping(Result<PlaylistDetailResponse, Error>) -> Void ) {
         createRequest(method: .GET, endpoint: Constant.getPlaylist(id: playlist.id), parameters: [:], completion: completion)
     }
     
     // MARK: - Profile
-    
-    
-    
     func createRequest<T: Codable>(method: HttpMethod,
                                    endpoint: String,
                                    parameters: [String: String] = [:],
@@ -90,7 +86,6 @@ extension APICaller {
                 completion(.failure(error))
             }
         } receiveValue: { data in
-            print("DEBUG: \(data)")
             completion(.success(data))
         }
         .store(in: &cancellables)

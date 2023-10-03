@@ -34,13 +34,18 @@ final class PlaylistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        bind()
+        configureNavigation()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layout()
     }
+    
+    private func configureNavigation() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+    }
+
     
     private func configure() {
         title = playlist.name
@@ -95,7 +100,7 @@ final class PlaylistViewController: UIViewController {
         // Regist Section Header
         section.boundarySupplementaryItems = [
             NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                                           heightDimension: .fractionalHeight(0.45)),
+                                                                                           heightDimension: .fractionalHeight(0.5)),
                                                         elementKind: UICollectionView.elementKindSectionHeader,
                                                         alignment: .top)
         ]
@@ -112,8 +117,11 @@ final class PlaylistViewController: UIViewController {
         }
     }
     
-    private func bind() {
-        
+    @objc private func didTapShare() {
+        guard let url = URL(string: playlist.externalUrls["spotify"] ?? "") else { return }
+        let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // 아이패드용 충돌 방지
+        present(vc, animated: true)
     }
     
 }
@@ -139,7 +147,16 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         let artworkURL = URL(string: playlist.images.first?.url ?? "")
         let headerViewModel = PlaylistHeaderViewModel(name: playlist.name, ownerName: playlist.owner.displayName, desctiption: playlist.description, artworkURL: artworkURL)
         header.configure(with: headerViewModel)
+        header.delegate = self
         return header
     }
     
+}
+
+extension PlaylistViewController: PlaylistCollectionReuseableViewDelegate {
+    
+    func playlistCollectionReuseableViewDidTapPlayAll(_ header: PlaylistCollectionReuseableView) {
+        
+    }
+
 }

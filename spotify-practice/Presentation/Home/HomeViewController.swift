@@ -89,7 +89,8 @@ final class HomeViewController: UIViewController {
         let group = DispatchGroup()
         group.enter()
         group.enter()
-        
+        // group.enter()
+
         // New Releases
         var newReleases: NewReleaseResponse?
 
@@ -216,11 +217,6 @@ final class HomeViewController: UIViewController {
             make.center.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    
-    func getGenre(group: DispatchGroup) {
-
-    }
-    
 }
 
 

@@ -8,9 +8,15 @@
 import UIKit
 import SDWebImage
 
+protocol PlaylistCollectionReuseableViewDelegate: AnyObject {
+    func playlistCollectionReuseableViewDidTapPlayAll(_ header: PlaylistCollectionReuseableView)
+}
+
 class PlaylistCollectionReuseableView: UICollectionReusableView, Reuseable {
     
     static var reuseId: String = "PlaylistCollectionReuseableView"
+    
+    weak var delegate: PlaylistCollectionReuseableViewDelegate?
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -34,6 +40,21 @@ class PlaylistCollectionReuseableView: UICollectionReusableView, Reuseable {
 
     }()
     
+    private lazy var vstack: UIStackView = {
+       let sv = UIStackView()
+        sv.axis = .vertical
+        sv.distribution = .fillProportionally
+        sv.alignment = .top
+        sv.spacing = 8
+
+        sv.addArrangedSubview(nameLabel)
+        sv.addArrangedSubview(descriptionLabel)
+        sv.addArrangedSubview(ownerLabel)
+        sv.addArrangedSubview(UIView())
+
+        return sv
+    }()
+    
     private let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -41,9 +62,22 @@ class PlaylistCollectionReuseableView: UICollectionReusableView, Reuseable {
         return imageView
     }()
     
+    private let playAllButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .systemGreen
+        let image = UIImage(systemName: "play.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular))
+        button.setImage(image, for: .normal)
+        button.tintColor = .black
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
+        return button
+    }()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
+        self.playAllButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -52,38 +86,26 @@ class PlaylistCollectionReuseableView: UICollectionReusableView, Reuseable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        addSubview(nameLabel)
-        addSubview(descriptionLabel)
-        addSubview(ownerLabel)
+
         addSubview(imageView)
+        addSubview(vstack)
+        addSubview(playAllButton)
         
-        // nameLabel.backgroundColor = .red
-        // descriptionLabel.backgroundColor = .blue
-        // ownerLabel.backgroundColor = .yellow
-        // imageView.backgroundColor = .systemGreen
-                
         imageView.snp.makeConstraints { make in
             make.height.width.equalTo(self.snp.width).dividedBy(1.8)
             make.top.equalTo(self).inset(20)
             make.centerX.equalTo(self)
         }
         
-        nameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        nameLabel.snp.makeConstraints { make in
+        vstack.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(10)
             make.horizontalEdges.equalToSuperview().inset(4)
         }
         
-        descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(nameLabel)
-        }
-        
-        ownerLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        ownerLabel.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(nameLabel)
+        playAllButton.snp.makeConstraints { make in
+            make.trailing.equalTo(self).inset(20)
             make.bottom.equalToSuperview().inset(10)
+            make.size.equalTo(50)
         }
 
     }
@@ -93,6 +115,11 @@ class PlaylistCollectionReuseableView: UICollectionReusableView, Reuseable {
         self.descriptionLabel.text = viewModel.desctiption
         self.ownerLabel.text = viewModel.ownerName
         self.imageView.sd_setImage(with: viewModel.artworkURL)
+    }
+    
+    @objc private func playButtonPressed() {
+        print("PlayButton Tapped!")
+        delegate?.playlistCollectionReuseableViewDidTapPlayAll(self)
     }
     
 }
