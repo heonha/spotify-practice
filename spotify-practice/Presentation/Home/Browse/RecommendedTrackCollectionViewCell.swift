@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RecommendedTrackCollectionViewCell: UICollectionViewCell, ReuseableCell {
+class RecommendedTrackCollectionViewCell: UICollectionViewCell, Reuseable {
     
     static var reuseId = "RecommendedTrackCollectionViewCell"
  

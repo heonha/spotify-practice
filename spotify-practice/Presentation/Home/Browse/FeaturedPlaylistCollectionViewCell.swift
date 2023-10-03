@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FeaturedPlaylistCollectionViewCell: UICollectionViewCell, ReuseableCell {
+class FeaturedPlaylistCollectionViewCell: UICollectionViewCell, Reuseable {
     
     static var reuseId = "FeaturedPlaylistCollectionViewCell"
     

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class NewReleaseCollectionViewCell: UICollectionViewCell, ReuseableCell {
+class NewReleaseCollectionViewCell: UICollectionViewCell, Reuseable {
 
     static var reuseId = "NewReleaseCollectionViewCell"
     

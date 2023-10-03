@@ -46,7 +46,13 @@ final class PlaylistViewController: UIViewController {
         title = playlist.name
         view.backgroundColor = .systemBackground
         
-        collectionView.register(RecommendedTrackCollectionViewCell.self, forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.reuseId)
+        collectionView.register(PlaylistCollectionReuseableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: PlaylistCollectionReuseableView.reuseId)
+        
+        collectionView.register(RecommendedTrackCollectionViewCell.self,
+                                forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.reuseId)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -85,6 +91,16 @@ final class PlaylistViewController: UIViewController {
         
         // Section
         let section = NSCollectionLayoutSection(group: verticalGroup)
+        
+        // Regist Section Header
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                                                           heightDimension: .fractionalHeight(0.45)),
+                                                        elementKind: UICollectionView.elementKindSectionHeader,
+                                                        alignment: .top)
+        ]
+        
+        
         return section
     }
     
@@ -114,4 +130,16 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         cell.configure(with: data)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
+        
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PlaylistCollectionReuseableView.reuseId, for: indexPath) as? PlaylistCollectionReuseableView else { return UICollectionReusableView() }
+        
+        let artworkURL = URL(string: playlist.images.first?.url ?? "")
+        let headerViewModel = PlaylistHeaderViewModel(name: playlist.name, ownerName: playlist.owner.displayName, desctiption: playlist.description, artworkURL: artworkURL)
+        header.configure(with: headerViewModel)
+        return header
+    }
+    
 }

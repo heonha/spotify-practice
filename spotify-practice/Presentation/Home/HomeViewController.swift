@@ -190,7 +190,6 @@ final class HomeViewController: UIViewController {
             return RecommendedTrackViewModel(name: track.name, artistName: track.artists.first?.name ?? "", artworkURL: track.album?.images.first?.url.toUrl())
         }
         
-        
         print("MSG: ViewModel을 셋업했습니다.")
 
         sections.append(.newReleases(viewModel: albumsViewModel))
